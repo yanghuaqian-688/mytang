@@ -1,0 +1,193 @@
+# mytang
+this is tang website
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盛世长安 — 唐朝文化展</title>
+    <style>
+        /* ======== 基础样式 ======== */
+        body {
+            margin: 0;
+            font-family: "Microsoft YaHei", sans-serif;
+            background-color: #0e0e0e;
+            color: #f5f5f5;
+            line-height: 1.8;
+        }
+
+        header {
+            background: linear-gradient(90deg, #7b1113, #b22222);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #1a1a1a;
+            padding: 0.8rem 0;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #f5f5f5;
+            margin: 0.5rem 1rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffcc33;
+        }
+
+        /* ======== 内容部分 ======== */
+        section {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        section h2 {
+            border-left: 5px solid #ffcc33;
+            padding-left: 10px;
+            font-size: 1.8rem;
+            color: #ffcc33;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            text-indent: 2em;
+            font-size: 1.1rem;
+        }
+
+        /* ======== 图片画廊 ======== */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255,204,51,0.5);
+        }
+
+        /* ======== 页脚 ======== */
+        footer {
+            background-color: #111;
+            text-align: center;
+            padding: 1.5rem;
+            color: #aaa;
+            font-size: 0.9rem;
+            border-top: 1px solid #333;
+        }
+
+        /* ======== 返回顶部按钮 ======== */
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #b22222;
+            color: white;
+            border: none;
+            padding: 10px 14px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            font-size: 18px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.4);
+        }
+
+        #backToTop:hover {
+            background-color: #ffcc33;
+            color: #111;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>盛世长安 — 唐朝文化展</h1>
+    <p>璀璨华章 · 千古文明 · 大唐风华</p>
+</header>
+
+<nav>
+    <a href="#history">唐朝历史</a>
+    <a href="#art">艺术与书法</a>
+    <a href="#clothing">服饰与风尚</a>
+    <a href="#architecture">建筑之美</a>
+</nav>
+
+<section id="history">
+    <h2>唐朝历史</h2>
+    <p>唐朝（618—907年）是中国历史上国力最强盛的朝代之一。自李渊建国到安史之乱前的“开元盛世”，政治清明、经济繁荣、文化昌盛、科技领先，被誉为中华文明的巅峰时期。</p>
+    <div class="gallery">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Tang_Dynasty_Map.jpg" alt="唐朝疆域图">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Tang_Taizong_Li_Shi_Min.jpg" alt="唐太宗画像">
+    </div>
+</section>
+
+<section id="art">
+    <h2>艺术与书法</h2>
+    <p>唐朝是书法、绘画、音乐的黄金时代。书法家如颜真卿、欧阳询、柳公权皆为千古宗师。绘画上，阎立本、吴道子等人物画大师将写实与意境完美融合，开创了中国艺术的高峰。</p>
+    <div class="gallery">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Yan_Zhenqing_Calligraphy.jpg" alt="颜真卿书法">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Wu_Daozi_Painting.jpg" alt="吴道子绘画">
+    </div>
+</section>
+
+<section id="clothing">
+    <h2>服饰与风尚</h2>
+    <p>唐朝女性衣饰华丽而开放，男性服装雍容大方，体现出社会开放与文化自信。胡服、襦裙、圆领袍等皆展现中西文化交流的成果。</p>
+    <div class="gallery">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/TangDynastyLadies.jpg" alt="唐朝仕女图">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Tang_costumes.jpg" alt="唐朝服饰">
+    </div>
+</section>
+
+<section id="architecture">
+    <h2>建筑之美</h2>
+    <p>唐代建筑雄浑大气、结构严谨，长安城的规划堪称古代都市典范。大雁塔、小雁塔、敦煌莫高窟等，至今仍是中华建筑艺术的瑰宝。</p>
+    <div class="gallery">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Giant_Wild_Goose_Pagoda_02.jpg" alt="大雁塔">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Mogao_Caves.jpg" alt="敦煌莫高窟">
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 盛世长安文化展 | 设计与制作：yanghuaqian</p>
+</footer>
+
+<button id="backToTop" title="回到顶部">↑</button>
+
+<script>
+    // 返回顶部按钮逻辑
+    const btn = document.getElementById("backToTop");
+    window.onscroll = () => {
+        btn.style.display = (window.scrollY > 400) ? "block" : "none";
+    };
+    btn.onclick = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+</script>
+
+</body>
+</html>
