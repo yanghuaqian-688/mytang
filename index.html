@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>盛世唐风 · 文化·宗教·经济</title>
+  <style>
+    :root{--menu-w:220px;--accent:#e6b655}
+    html,body{height:100%;margin:0;font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial}
+    /* 全屏大图区 */
+    .hero{position:relative;height:100vh;width:100%;overflow:hidden;background:#000;color:#fff}
+    .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.03);filter:contrast(1.02) saturate(1.05)}
+    .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.15),rgba(0,0,0,0.45));}
+    /* 右上菜单 */
+    .menu{position:fixed;right:24px;top:24px;width:var(--menu-w);z-index:40;display:flex;flex-direction:column;gap:10px}
+    .menu button{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06);color:#fff;padding:14px 18px;border-radius:12px;text-align:left;backdrop-filter:blur(6px);cursor:pointer;font-weight:600}
+    .menu button:hover{transform:translateX(-6px)}
+    .logo{position:fixed;left:28px;top:28px;color:#fff;font-weight:700;z-index:50}
+    /* 主内容 */
+    main{background:#faf8f6;color:#111}
+    section{padding:64px 8%;min-height:80vh}
+    h1,h2{margin:0 0 18px 0}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:28px}
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .gallery img{width:100%;height:180px;object-fit:cover;border-radius:8px}
+    /* 留言区 */
+    .comments{background:#fff;border-radius:12px;padding:18px;box-shadow:0 6px 30px rgba(0,0,0,0.08)}
+    .comment{border-bottom:1px dashed #eee;padding:8px 0}
+    .comment:last-child{border-bottom:none}
+    form .row{display:flex;gap:8px;margin-bottom:8px}
+    form input,form textarea{flex:1;padding:10px;border-radius:8px;border:1px solid #ddd}
+    form button{padding:10px 14px;border-radius:8px;border:none;background:var(--accent);color:#111;font-weight:700;cursor:pointer}
+    /* 小屏适配 */
+    @media(max-width:900px){.menu{right:12px;top:12px;width:160px}.grid{grid-template-columns:1fr}.gallery img{height:120px}}
+  </style>
+</head>
+<body>
+  <div class="hero" id="hero">
+    <!-- ====== 在下面三行替换为你要的三张高清图片地址（必须是公开可热链的 URL），每行包含一张图片，确保 URL 可直接访问并返回图片文件。 ====== -->
+    <!-- __IMAGE_URL_HERO_1__ -->
+    <!-- __IMAGE_URL_HERO_2__ -->
+    <!-- __IMAGE_URL_HERO_3__ -->
+
+    <!-- 预设第一张为背景（如果你粘贴了 URL，JS 会轮播） -->
+    <img id="heroImg" src="" alt="唐朝风貌大图" />
+    <div class="overlay"></div>
+    <div class="logo">盛世·唐风</div>
+    <nav class="menu" aria-label="主菜单">
+      <button data-target="religion">宗教</button>
+      <button data-target="culture">文化</button>
+      <button data-target="economy">经济</button>
+      <button data-target="guest">留言</button>
+    </nav>
+  </div>
+
+  <main>
+    <section id="religion">
+      <div class="grid">
+        <div>
+          <h1>宗教 · 唐朝的信仰与千年回响</h1>
+          <p>
+            唐朝作为开放且富强的时代，宗教在社会生活中占据了极为重要的地位。佛教在唐朝进入鼎盛期，不仅形成了宏伟的寺庙建筑和庞大的僧伽体系，还促进了艺术、书法、雕刻与壁画的空前发展。许多著名的石窟和彩画、经变画都保存了当时信仰的形象与审美。与此同时，道教也受到皇室礼遇，成为国家祭祀与方术的重要组成部分。外来宗教如景教、摩尼教和伊斯兰贸易使者带来的信仰也在边疆与都城交错出现，形成一种多元共存的宗教生态。此专题将梳理唐朝佛教传播的路线、重要寺观、经典翻译与僧侣交流，同时展示大量壁画、石刻、法器与文献，让观众看到宗教如何影响政治、艺术、民俗与日常生活。
+          </p>
+          <p>
+            （以下为专题深入介绍，至少 500 字）
+          </p>
+          <p>
+            唐朝佛教不仅在数量上达到顶峰，更在思想与艺术上留下深刻烙印。自隋唐以来，玄奘法师的西行取经为经典翻译与思想交流打开了通路，玄奘及其翻译活动推动了律学、般若与中观等宗派的传播；而密教也借由吐蕃与中亚地区的交流进入中原，引发礼仪、曼荼罗与密法仪式的本土化。寺院不仅是宗教活动中心，还是藏经、教育、医疗与慈善的机构，承担了社会治理与文化传播的多重功能。在艺术上，从大足石刻到敦煌莫高窟的经变画、从宫廷的供养仪仗到民间的佛教信仰表征，皆展示出繁复的造像风格和讲述性极强的故事题材。此外，宗教节庆、施食与超度仪式，交织着民间信仰与正统宗教，使宗教成为链接王朝权力与百姓生活的桥梁。通过本专题的图像与学术注释，你将能体会到宗教如何在唐代社会中塑造秩序、传播思想并促成文化融合。
+          </p>
+        </div>
+        <aside>
+          <h2>精选图片</h2>
+          <div class="gallery" id="religionGallery">
+            <!-- 在此处填入公开图片 URL（多张）作为 <img src="..."> 项目 -->
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="culture">
+      <div class="grid">
+        <div>
+          <h1>文化 · 唐朝的诗与墨色</h1>
+          <p>
+            唐朝文化充满张力：开放、多元与创造力并存。作为中国古代最具代表性的文化高峰之一，唐朝以诗歌、绘画、礼乐与戏曲奠定了后来数百年的艺术标准。诗人如李白、杜甫、王维等把山河、人生、战争与礼乐融入短短数行之中，使得“诗”成为全民语言。绘画在这一时期也成就非凡，山水、人物与宫廷题材互相竞高，工笔与写意同时发展，出现了注重气韵、生动写真的创作传统。文学之外，书法、音乐、纺织、陶瓷等手工业都表现出精雕细琢的美学，尤其是都城长安的工匠与商贾带来的物质文化交流，使得外来材料、服饰与器皿成为文化互相吸收的载体。
+          </p>
+          <p>
+            （以下为专题深入介绍，至少 500 字）
+          </p>
+          <p>
+            文化的繁荣来自于社会流动性与对外开放：丝绸之路不仅是商品通道，也是思想、音乐与服饰的传播渠道。来自西域的乐器、胡服与饮食被贵族与市井同时采纳，激发出新的审美与生活方式。唐朝的科举制度与官僚体系催生了大量读书人，他们在都会中形成雅集、诗社与书画交流的圈层，使得文化产品在城市中迅速扩散。宫廷礼仪与节庆也推动了戏剧与音乐的成熟，宫廷歌舞的盛大场面被壁画与织物保留下来，成为理解唐代风貌的重要视觉资料。教育与藏书机构（如大藏经的保存）保证了文化的传承与学术的延续。此外，女性审美与服饰在唐代极为讲究，宫女与贵妇的装束、发饰与妆容也在壁画与手卷中留下了极富感染力的形象，为我们重建唐代日常与审美世界提供了珍贵线索。
+          </p>
+        </div>
+        <aside>
+          <h2>精选图片</h2>
+          <div class="gallery" id="cultureGallery"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="economy">
+      <div class="grid">
+        <div>
+          <h1>经济 · 盛世下的交易与繁荣</h1>
+          <p>
+            唐朝的经济基础雄厚：农业生产技术、运河与驿站网络、以及都城长安、洛阳的市场体系共同支持了商业与手工业的繁荣。大规模的粮食产出、盐铁经济与税赋制度保证了国家财政的稳定；与此同时丝绸、茶叶、瓷器与珠宝等商品通过陆路与海路远销外域，成为国家财富的重要来源。市镇与集市的兴盛带动了手工业的集中与分工，使得陶瓷、制丝、酿酒等行业产生了专业化的生产链。货币流通与信用关系也在城市中逐步成熟，旅商与行会的出现促进了国内外贸易的便捷与规模扩大。
+          </p>
+          <p>
+            （以下为专题深入介绍，至少 500 字）
+          </p>
+          <p>
+            唐朝经济不仅体现在商品的丰富与市场的活跃，还表现在制度与基础设施的完善。大运河等水路工程大大降低了粮食与物资的运输成本，使得南方的产品能高效供给北方都邑，国家能够在粮荒或战乱时进行有效调配。官营与私营经济并存，国家对盐铁等重要商品实行管理以维持财政收入，而民间工商业者通过手工坊与行会形成了稳定的生产与流通体系。对外贸易与对外使节频繁，更带来外来商品与外籍工匠，这催生了技术模仿与革新，使唐代手工业在质量与种类上都有长足发展。税制、租庸调制度及其后期的改革也影响了社会财富的分配，城市人口的增加反过来刺激了服务业、饮食业与文化产业的兴起，呈现出一个由内需与外贸共同驱动的繁荣图景。
+          </p>
+        </div>
+        <aside>
+          <h2>精选图片</h2>
+          <div class="gallery" id="economyGallery"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="guest">
+      <h1>留言区 · 访客提问与讨论</h1>
+      <div class="comments" id="commentsBox">
+        <form id="commentForm">
+          <div class="row"><input id="name" placeholder="你的名字（可选）"/></div>
+          <div class="row"><textarea id="content" rows="4" placeholder="写下你的留言或提问..."></textarea></div>
+          <div class="row"><button type="submit">发布留言</button></div>
+        </form>
+        <div id="commentsList"></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    /***** 简单交互：轮播英雄图、右侧菜单跳转、本地留言（localStorage） *****/
+    const heroUrls = [];
+    // ====== 请把你要使用的“三张高清大图 URL”粘贴到下列数组内的引号中： ======
+    // 例：heroUrls.push('https://upload.wikimedia.org/.../example.jpg');
+    // __PASTE_HERO_IMAGE_URLS_HERE__
+
+    const heroImg = document.getElementById('heroImg');
+    let hi = 0;
+    function showHero(i){ if(heroUrls.length) heroImg.src = heroUrls[i % heroUrls.length]; }
+    // 自动轮播（7秒）
+    if(heroUrls.length){ showHero(0); setInterval(()=>{ hi=(hi+1)%heroUrls.length; showHero(hi); },7000); }
+    else{ heroImg.src = 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"><rect width="100%" height="100%" fill="#222"/><text x="50%" y="50%" fill="#fff" font-size="28" text-anchor="middle" dominant-baseline="middle">请在代码中粘贴三张公开可访问的高清图片 URL</text></svg>'); }
+
+    // 菜单跳转
+    document.querySelectorAll('.menu button').forEach(b=>{ b.addEventListener('click',()=>{ const t=document.getElementById(b.dataset.target); if(t) t.scrollIntoView({behavior:'smooth'}); }) });
+
+    // 简单图库加载（示例使用公开图片库：请在代码中替换或增加公开图片 URL 到对应数组）
+    const religionPics = [/* __REL_PIC_URLS__ */];
+    const culturePics = [/* __CUL_PIC_URLS__ */];
+    const economyPics = [/* __ECO_PIC_URLS__ */];
+
+    function fillGallery(id,arr){ const el=document.getElementById(id); if(!el) return; if(arr.length===0){ el.innerHTML = '<p>暂无图片（请在代码中加入公开图片 URL）</p>'; return; } el.innerHTML = arr.map(u=>`<img src="${u}" alt="">`).join(''); }
+    fillGallery('religionGallery',religionPics);
+    fillGallery('cultureGallery',culturePics);
+    fillGallery('economyGallery',economyPics);
+
+    // 留言（localStorage，注意：这是客户端存储，仅用于静态站点示例）
+    const form = document.getElementById('commentForm'); const lst = document.getElementById('commentsList');
+    function loadComments(){ const s = localStorage.getItem('tang_comments'); return s?JSON.parse(s):[] }
+    function saveComments(a){ localStorage.setItem('tang_comments',JSON.stringify(a)); }
+    function renderComments(){ const a = loadComments(); if(a.length===0) lst.innerHTML='<p>还没有留言，成为第一位吧！</p>'; else lst.innerHTML = a.map(c=>`<div class="comment"><strong>${escapeHtml(c.name||'匿名')}</strong><div>${escapeHtml(c.content)}</div><small style="color:#777">${new Date(c.t).toLocaleString()}</small></div>`).join(''); }
+    form.addEventListener('submit',e=>{ e.preventDefault(); const name=document.getElementById('name').value.trim(); const content=document.getElementById('content').value.trim(); if(!content){ alert('留言不能为空'); return;} const a=loadComments(); a.unshift({name,content,t:Date.now()}); saveComments(a); renderComments(); form.reset(); });
+    renderComments();
+    function escapeHtml(s){ return s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('\"','&quot;'); }
+  </script>
+
+  <!-- 使用说明（仅供维护者阅读）
+       1) 在页面顶部注释标记处替换三张 "高清大图 URL"（必须为公开可热链的 URL，否则无法在 GitHub Pages 上显示）。我们在代码里把那三行用注释特别标注了：
+          <!-- __IMAGE_URL_HERO_1__ --> 等。
+       2) 在 <script> 部分的 heroUrls 数组处把三张 URL 粘贴为字符串：heroUrls.push('https://...')。
+       3) 在相应的 gallery 数组（__REL_PIC_URLS__ / __CUL_PIC_URLS__ / __ECO_PIC_URLS__）里填充公开图片地址，用于各专题内部展示。
+       4) 留言区基于 localStorage，仅适合静态站点示范。如需服务端保存，请替换为后端 API 调用即可。
+  -->
+</body>
+</html>
