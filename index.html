@@ -135,53 +135,127 @@
   </main>
 
   <script>
-    /***** 简单交互：轮播英雄图、右侧菜单跳转、本地留言（localStorage） *****/
-    const heroUrls = [
-  'https://upload.wikimedia.org/wikipedia/commons/4/4a/Court_Ladies_of_the_Tang.jpg',
-  'https://upload.wikimedia.org/wikipedia/commons/a/a6/Tang_dynasty_2_horses_1_rider.jpg',
-  'https://upload.wikimedia.org/wikipedia/commons/7/7f/Bodhisattva%2C_China_Tang_dynasty%2C_8th_century%2C_ink_and_colors_on_plaster.JPG'
-];
+  /***** 简单交互：轮播英雄图、右侧菜单跳转、本地留言（localStorage） *****/
 
-    // ====== 请把你要使用的“三张高清大图 URL”粘贴到下列数组内的引号中： ======
-    // 例：heroUrls.push('https://upload.wikimedia.org/.../example.jpg');
-    // __PASTE_HERO_IMAGE_URLS_HERE__
+  // === 首页三张高清大图 ===
+  const heroUrls = [
+    'https://upload.wikimedia.org/wikipedia/commons/4/4a/Court_Ladies_of_the_Tang.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/a/a6/Tang_dynasty_2_horses_1_rider.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/7/7f/Bodhisattva%2C_China_Tang_dynasty%2C_8th_century%2C_ink_and_colors_on_plaster.JPG'
+  ];
 
-    const heroImg = document.getElementById('heroImg');
-    let hi = 0;
-    function showHero(i){ if(heroUrls.length) heroImg.src = heroUrls[i % heroUrls.length]; }
-    // 自动轮播（7秒）
-    if(heroUrls.length){ showHero(0); setInterval(()=>{ hi=(hi+1)%heroUrls.length; showHero(hi); },7000); }
-    else{ heroImg.src = 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"><rect width="100%" height="100%" fill="#222"/><text x="50%" y="50%" fill="#fff" font-size="28" text-anchor="middle" dominant-baseline="middle">请在代码中粘贴三张公开可访问的高清图片 URL</text></svg>'); }
+  // 显示与轮播逻辑
+  const heroImg = document.getElementById('heroImg');
+  let hi = 0;
+  function showHero(i) {
+    if (heroUrls.length) heroImg.src = heroUrls[i % heroUrls.length];
+  }
+  if (heroUrls.length) {
+    showHero(0);
+    setInterval(() => {
+      hi = (hi + 1) % heroUrls.length;
+      showHero(hi);
+    }, 7000);
+  } else {
+    heroImg.src =
+      'data:image/svg+xml;charset=UTF-8,' +
+      encodeURIComponent(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"><rect width="100%" height="100%" fill="#222"/><text x="50%" y="50%" fill="#fff" font-size="28" text-anchor="middle" dominant-baseline="middle">请在代码中粘贴三张公开可访问的高清图片 URL</text></svg>'
+      );
+  }
 
-    // 菜单跳转
-    document.querySelectorAll('.menu button').forEach(b=>{ b.addEventListener('click',()=>{ const t=document.getElementById(b.dataset.target); if(t) t.scrollIntoView({behavior:'smooth'}); }) });
+  // 菜单跳转逻辑
+  document.querySelectorAll('.menu button').forEach((b) => {
+    b.addEventListener('click', () => {
+      const t = document.getElementById(b.dataset.target);
+      if (t) t.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
 
-    // 简单图库加载（示例使用公开图片库：请在代码中替换或增加公开图片 URL 到对应数组）
-    const religionPics = [/* __REL_PIC_URLS__ */];
-    const culturePics = [/* __CUL_PIC_URLS__ */];
-    const economyPics = [/* __ECO_PIC_URLS__ */];
+  // === 各专题图库 ===
+  const religionPics = [
+    'https://upload.wikimedia.org/wikipedia/commons/e/e3/Mogao_Caves_Buddhist_Mural_Tang_Dynasty.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/3/3d/Dunhuang_mural_Buddhist_Tang.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/6/66/Longmen_Grottoes_Buddha_Tang.jpg'
+  ];
 
-    function fillGallery(id,arr){ const el=document.getElementById(id); if(!el) return; if(arr.length===0){ el.innerHTML = '<p>暂无图片（请在代码中加入公开图片 URL）</p>'; return; } el.innerHTML = arr.map(u=>`<img src="${u}" alt="">`).join(''); }
-    fillGallery('religionGallery',religionPics);
-    fillGallery('cultureGallery',culturePics);
-    fillGallery('economyGallery',economyPics);
+  const culturePics = [
+    'https://upload.wikimedia.org/wikipedia/commons/2/2b/Li_Bai_in_Tang_Dynasty_Painting.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/8/80/Tang_Dynasty_Court_Music.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/5/58/Tang_Dynasty_Painting_Women_Playing_Chess.jpg'
+  ];
 
-    // 留言（localStorage，注意：这是客户端存储，仅用于静态站点示例）
-    const form = document.getElementById('commentForm'); const lst = document.getElementById('commentsList');
-    function loadComments(){ const s = localStorage.getItem('tang_comments'); return s?JSON.parse(s):[] }
-    function saveComments(a){ localStorage.setItem('tang_comments',JSON.stringify(a)); }
-    function renderComments(){ const a = loadComments(); if(a.length===0) lst.innerHTML='<p>还没有留言，成为第一位吧！</p>'; else lst.innerHTML = a.map(c=>`<div class="comment"><strong>${escapeHtml(c.name||'匿名')}</strong><div>${escapeHtml(c.content)}</div><small style="color:#777">${new Date(c.t).toLocaleString()}</small></div>`).join(''); }
-    form.addEventListener('submit',e=>{ e.preventDefault(); const name=document.getElementById('name').value.trim(); const content=document.getElementById('content').value.trim(); if(!content){ alert('留言不能为空'); return;} const a=loadComments(); a.unshift({name,content,t:Date.now()}); saveComments(a); renderComments(); form.reset(); });
+  const economyPics = [
+    'https://upload.wikimedia.org/wikipedia/commons/f/f9/Chang%27an_market_Tang_Dynasty.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/1/12/Silk_Road_Tang_Map.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/4/44/Tang_Pottery_Camel_with_Merchant.jpg'
+  ];
+
+  function fillGallery(id, arr) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (arr.length === 0) {
+      el.innerHTML = '<p>暂无图片（请在代码中加入公开图片 URL）</p>';
+      return;
+    }
+    el.innerHTML = arr.map((u) => `<img src="${u}" alt="">`).join('');
+  }
+  fillGallery('religionGallery', religionPics);
+  fillGallery('cultureGallery', culturePics);
+  fillGallery('economyGallery', economyPics);
+
+  // === 留言系统（基于 localStorage） ===
+  const form = document.getElementById('commentForm');
+  const lst = document.getElementById('commentsList');
+
+  function loadComments() {
+    const s = localStorage.getItem('tang_comments');
+    return s ? JSON.parse(s) : [];
+  }
+
+  function saveComments(a) {
+    localStorage.setItem('tang_comments', JSON.stringify(a));
+  }
+
+  function renderComments() {
+    const a = loadComments();
+    if (a.length === 0)
+      lst.innerHTML = '<p>还没有留言，成为第一位吧！</p>';
+    else
+      lst.innerHTML = a
+        .map(
+          (c) => `
+        <div class="comment">
+          <strong>${escapeHtml(c.name || '匿名')}</strong>
+          <div>${escapeHtml(c.content)}</div>
+          <small style="color:#777">${new Date(c.t).toLocaleString()}</small>
+        </div>`
+        )
+        .join('');
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const content = document.getElementById('content').value.trim();
+    if (!content) {
+      alert('留言不能为空');
+      return;
+    }
+    const a = loadComments();
+    a.unshift({ name, content, t: Date.now() });
+    saveComments(a);
     renderComments();
-    function escapeHtml(s){ return s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('\"','&quot;'); }
-  </script>
+    form.reset();
+  });
 
-  <!-- 使用说明（仅供维护者阅读）
-       1) 在页面顶部注释标记处替换三张 "高清大图 URL"（必须为公开可热链的 URL，否则无法在 GitHub Pages 上显示）。我们在代码里把那三行用注释特别标注了：
-          <!-- __IMAGE_URL_HERO_1__ --> 等。
-       2) 在 <script> 部分的 heroUrls 数组处把三张 URL 粘贴为字符串：heroUrls.push('https://...')。
-       3) 在相应的 gallery 数组（__REL_PIC_URLS__ / __CUL_PIC_URLS__ / __ECO_PIC_URLS__）里填充公开图片地址，用于各专题内部展示。
-       4) 留言区基于 localStorage，仅适合静态站点示范。如需服务端保存，请替换为后端 API 调用即可。
-  -->
-</body>
-</html>
+  renderComments();
+
+  function escapeHtml(s) {
+    return s
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;');
+  }
+</script>
